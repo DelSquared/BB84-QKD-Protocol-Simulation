@@ -1,6 +1,8 @@
 var w = 1000;
 var h = 300;
-var rt2 = Math.sqrt(2)
+var rt2 = Math.sqrt(2);
+var countqubits = 0;
+var keysize = 0;
 
 function qubit(x,y,basis){
   this.x=x;
@@ -80,9 +82,11 @@ function setup() {
 
   frameRate(70);
   keyDisp = createDiv('');
+  eff = createDiv('');
   q.push(new qubit(a.x,a.y,a.basis));
 
   keyDisp.html("Key =  "+key);
+  eff.html("Efficiency = 0%");
 
   time = createSlider(25, 750, 500);
   time.position(10,10);
@@ -102,10 +106,13 @@ function draw() {
     q[i].updatePos(1,0);
   }
   if((q[0].x-b.x)*(q[0].x-b.x)+(q[0].y-b.y)*(q[0].y-b.y)<=2){
+    countqubits++;
     if(q[0].basis==b.basis){
       key=key+q[0].state
       keyDisp.html("Key =  "+key);
+      keysize++;
     }
+    eff.html("Efficiency = "+Math.floor(100*keysize/countqubits)+"%");
     b.updateBasis();
     q.shift()
   }
