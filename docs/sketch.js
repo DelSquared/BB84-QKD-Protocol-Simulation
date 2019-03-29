@@ -98,7 +98,7 @@ function draw() {
   b.renderBasis();
   for(i=0;i<q.length;i++){
     q[i].renderQubit();
-    q[i].renderSpin(q.basis);
+    q[i].renderSpin(q[i].basis);
     q[i].updatePos(1,0);
   }
   if((q[0].x-b.x)*(q[0].x-b.x)+(q[0].y-b.y)*(q[0].y-b.y)<=2){
