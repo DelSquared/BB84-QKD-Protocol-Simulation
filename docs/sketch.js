@@ -105,8 +105,8 @@ function draw() {
     if(q[0].basis==b.basis){
       key=key+q[0].state
       keyDisp.html("Key =  "+key);
-      b.updateBasis();
     }
+    b.updateBasis();
     q.shift()
   }
 }
