@@ -85,8 +85,8 @@ function setup() {
   eff = createDiv('');
   q.push(new qubit(a.x,a.y,a.basis));
 
-  keyDisp.html("<font color='white'>Key =  "+key+"</font>");
-  eff.html("<font color='white'>Efficiency = 0%</font>");
+  keyDisp.html("Key =  "+key);
+  eff.html("Efficiency = 0%");
 
   time = createSlider(25, 750, 500);
   time.position(10,10);
@@ -109,10 +109,10 @@ function draw() {
     countqubits++;
     if(q[0].basis==b.basis){
       key=key+q[0].state
-      keyDisp.html("<font color='white'>Key =  "+key+"</font>");
+      keyDisp.html("Key =  "+key);
       keysize++;
     }
-    eff.html("<font color='white'>Efficiency = "+Math.floor(100*keysize/countqubits)+"%</font>");
+    eff.html("Efficiency = "+Math.floor(100*keysize/countqubits)+"%");
     b.updateBasis();
     q.shift()
   }
